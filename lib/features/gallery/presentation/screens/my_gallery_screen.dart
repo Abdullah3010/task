@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jop_task/core/user/current_user.dart';
 import 'package:jop_task/core/utils/app_colors.dart';
 import 'package:jop_task/core/widgets/rounded_button.dart';
+import 'package:jop_task/features/auth/presentation/bloc/auth_bloc/auth_bloc.dart';
 import 'package:jop_task/features/gallery/presentation/bloc/my_gallery_bloc/my_gallery_bloc.dart';
 import 'package:jop_task/features/gallery/presentation/widgets/my_image_widget.dart';
 import 'package:jop_task/features/gallery/presentation/widgets/pick_image_widget.dart';
@@ -68,7 +69,8 @@ class MyGalleryScreen extends StatelessWidget {
                             child: RoundedButton(
                               color: Colors.white,
                               onPressed: () {
-                                bloc.add(GetImagesEvent());
+                                MyInjector.injector<AuthBloc>()
+                                    .add(LogOutEvent()); 
                               },
                               child: Row(
                                 mainAxisAlignment:

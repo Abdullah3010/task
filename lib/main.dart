@@ -37,7 +37,9 @@ class _MyAppState extends State<MyApp> {
             debugShowCheckedModeBanner: false,
             title: 'Jop Task',
             theme: appTheme,
-            home: currentUser == null? const LoginScreen(): const MyGalleryScreen(),
+            home: currentUser == null
+                ? const LoginScreen()
+                : const MyGalleryScreen(),
           );
         },
       ),
